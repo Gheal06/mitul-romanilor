@@ -1,1 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <title>Mitul latinității</title>
+</head>
+<body>
+    <div class="navbar">
+        <h2>Mitul latinității</h2>
+    </div>
+    <div class="content">
+        <div class="leftarrow">
+        <span class="arrow1" onclick="changePage(-1)">&#9664;</span>
+        </div>
+        <div class="slides" id="slides">
+            <div class="slide">
+                <p>Amogus</p>
+                
+                <p>Amogus</p>
+                
+            </div>
+            <div class="slide">
+                <p>Amogus2</p>
+            </div>
+            <div class="footer"> <span id="pagenumber">Pagina 1 din ???</span></div>
+        </div>
+        <div class="rightarrow">
+        <span class="arrow2" onclick="changePage(1)">&#9654;</span>
+        </div>
+    </div>
+    <script>
+        var currentPage=0;
+        var slides=document.getElementById('slides'),n=slides.children.length-1,pagenumber=document.getElementById('pagenumber');
+        pagenumber.innerText="Pagina 1 din "+n;
+        
+        for(var i=1;i<n;i++)
+            slides.children[i].style.display='none';
+        
+        function changePage(delta){
+            slides.children[currentPage].style.display='none';
 
+            currentPage=(currentPage+delta)%n;
+
+            pagenumber.innerText="Pagina " + (currentPage+1) + " din " +n;
+
+            slides.children[currentPage].style.display='block';
+        }
+        
+    </script>
+</body>
+</html>
