@@ -43,7 +43,7 @@
         function changePage(delta){
             slides.children[currentPage].style.display='none';
 
-            currentPage=(currentPage+delta)%n;
+            currentPage=(currentPage+delta+n)%n;
 
             pagenumber.innerText="Pagina " + (currentPage+1) + " din " +n;
 
