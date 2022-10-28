@@ -5,51 +5,139 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="background.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <title>Mitul latinității</title>
 </head>
-<body>
-    <div class="navbar">
+<body onkeydown="evaluateKeypress()" id="body">
+    <ul class="circles">
+        <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+    </ul>
+    <div class="navbar textcenter">
         <h2>Mitul latinității</h2>
     </div>
     <div class="content">
-        <div class="leftarrow">
+        <div class="arrowcircle textcenter">
         <span class="arrow1" onclick="changePage(-1)">&#9664;</span>
         </div>
         <div class="slides" id="slides">
-            <div class="slide">
-                <p>Amogus</p>
-                
-                <p>Amogus</p>
-                
+            <div class="slide intro">
+                <h2 class="textcenter ">Premisă</h2>
+                <p>Latinitatea şi dacismul sunt concepte care delimitează două curente ideologice care se regăsesc în cultura şi literatura noastră. Dar care dintre aceste două rădăcini ereditare are o pondere mai mare?</p>
+                <p>Există istorici, etimologi şi lingvişti care aduc argumente pro sau contra ipotezei că suntem latini sau daci, precum şi mulţi scriitori, şi poeţi care folosesc clişee în favoarea uneia din aceste două ipoteze. Suntem daci? Suntem romani? Vom afla acest lucru analizând argumente lingvistice, etimologice şi istorice, dar şi din literatura română care se referă la acest subiect.​</p>
             </div>
-            <div class="slide">
-                <p>Amogus2</p>
+            <div class="slide history">
+                <h2 class="textcenter">Istoria Daciei</h2>
+                <p>Dacia era în Antichitate țara locuită de geto-daci, care erau împărțiți într-un număr mai mare de state, iar ei ocupau un teritoriu cuprins între: râul Tisa (vest), râul Nistru și Marea Neagră (est), Dunărea (sud) și Carpații Păduroși (nord). În anumite părți chiar depășeau aceste hotare: spre est peste Nistru, „înaintând până spre Bug”, iar spre vest, „ajunseră până la Dunărea panonică”.[1]
+
+                    Regatul dacic a ajuns la cea mai mare întindere a sa în timpul regelui Burebista, având ca hotare: țărmul Mării Negre și Bugul - spre est, Cadrilaterul boem, Dunărea panonică și Morava - spre vest, Carpații Păduroși - spre nord, iar Muntele Haemus (lanțul Balcanilor) - spre sud. Capitala regatului era orașul Argedava.</p>
             </div>
-            <div class="footer"> <span id="pagenumber">Pagina 1 din ???</span></div>
+
+            <div class="slide history">
+                <h2 class="textcenter">Istoria Romei</h2>
+                <p>Roma Antică a fost un oraș-stat a cărui istorie se întinde în perioada de timp cuprinsă între 753 î.Hr. și 476 d.Hr. Pe parcursul existenței sale de douăsprezece secole, civilizația romană a trecut de la monarhie la republică oligarhică și, apoi, la imperiu extins. Ea a dominat Europa de Vest și întreaga arie în jurul Mării Mediterane, prin cuceriri și asimilare, însă, în final, a cedat în fața invaziilor barbarilor din secolul cinci, marcând, astfel, declinul Imperiului Roman și începutul Evului Mediu. Civilizația romană e, deseori, clasificată ca o parte din Antichitatea Clasică, împreună cu Grecia Antică, o civilizație care a inspirat mult cultura Romei Antice. Roma Antică a adus contribuții importante în organizarea politică și administrativă, juridică, artă militară, artă, literatură, arhitectură, limbile Europei (limbile romanice), iar istoria sa continuă să aibă o influență puternică asupra lumii moderne.</p>
+            </div>
+            <div class="slide literature">
+                <h2 class="textcenter">Literatură</h2>
+                <p>Amogus</p>
+            </div>
+            <div class="slide game">
+                <h2 class="textcenter">Jocul coxolombar</h2>
+                <p>Amogus</p>
+            </div>
+            <div class="slide outro">
+                <h2 class="textcenter">Concluzii</h2>
+                <p>Amogus</p>
+            </div>
+            <div class="footer textcenter"> <span id="pagenumber">Pagina 1 din ???</span></div>
         </div>
-        <div class="rightarrow">
+        <div class="arrowcircle textcenter">
         <span class="arrow2" onclick="changePage(1)">&#9654;</span>
+        </div>
+        <div id="traian">
+            <img class="traian" src="assets/traian1.png" alt="traian1">
+            <img class="traian" src="assets/traian2.png" alt="traian2">
+            <img class="traian" src="assets/traian3.png" alt="traian3">
+            <img class="traian" src="assets/traian4.png" alt="traian4">
         </div>
     </div>
     <script>
-        var currentPage=0;
-        var slides=document.getElementById('slides'),n=slides.children.length-1,pagenumber=document.getElementById('pagenumber');
+        var currentPage=0,traianId=0;
+        var slides=document.getElementById('slides'),traian=document.getElementById('traian');
+        
+        var n=slides.children.length-1,pagenumber=document.getElementById('pagenumber');
         pagenumber.innerText="Pagina 1 din "+n;
         
         for(var i=1;i<n;i++)
             slides.children[i].style.display='none';
+
+        
+        for(var i=1;i<traian.children.length;i++)
+            traian.children[i].style.display='none';
         
         function changePage(delta){
             slides.children[currentPage].style.display='none';
+            traian.children[traianId].style.display='none';
 
             currentPage=(currentPage+delta+n)%n;
+            traianId=(traianId+delta+traian.children.length)%traian.children.length;
 
             pagenumber.innerText="Pagina " + (currentPage+1) + " din " +n;
 
             slides.children[currentPage].style.display='block';
+            traian.children[traianId].style.display='block';
+
+            var section=slides.children[currentPage].classList[1];
+            console.log(section);
+            var body=document.getElementById('body');
+            switch(section){
+                case 'intro':{ // red
+                    body.style.background='#631b1a';
+                    body.style.background='-webkit-linear-gradient(to left, #631b1a, #862524)';  
+                    body.style.background='repeating-linear-gradient( -30deg, #6F1D1B, #6F1D1B 5px, #631b1a 5px, #631b1a 25px)';
+                    body.style.width='100%';
+                    body.style.height='100vh';
+                    break;
+                }
+                case 'history':{ // yellow
+                    body.style.background='#63521a';
+                    body.style.background='-webkit-linear-gradient(to left, #63521a, #8c7426)';  
+                    body.style.background='repeating-linear-gradient( -30deg, #69540d, #69540d 5px, #5e4615 5px, #5e4615 25px)';
+                    body.style.width='100%';
+                    body.style.height='100vh';
+                    break;
+                }
+                case 'literature':{ // green
+                    body.style.background='#1b631a';
+                    body.style.background='-webkit-linear-gradient(to left, #1b631a, #2c8624)';  
+                    body.style.background='repeating-linear-gradient( -30deg, #125f0b, #125f0b 5px, #0a5310 5px, #0a5310 25px)';
+                    body.style.width='100%';
+                    body.style.height='100vh';
+                    break;
+                }
+                case 'game':{ // blue
+                    body.style.background='#271a63';
+                    body.style.background='-webkit-linear-gradient(to left, #291a63, #392486)';  
+                    body.style.background='repeating-linear-gradient( -30deg, #2d1c6f, #2d1c6f 5px, #2b105e 5px, #2b105e 25px)';
+                    body.style.width='100%';
+                    body.style.height='100vh';
+                    break;
+                }
+                case 'outro':{ // red
+                    body.style.background='#631b1a';
+                    body.style.background='-webkit-linear-gradient(to left, #631b1a, #862524)';  
+                    body.style.background='repeating-linear-gradient(-30deg, #6F1D1B, #6F1D1B 5px, #631b1a 5px, #631b1a 25px)';
+                    body.style.width='100%';
+                    body.style.height='100vh';
+                    break;
+                }
+            }
         }
-        
+        function evaluateKeypress(){
+            var keyid=event.key;
+            if(keyid=='ArrowLeft') changePage(-1);
+            else if(keyid=='ArrowRight') changePage(1);
+        }
     </script>
 </body>
 </html>
