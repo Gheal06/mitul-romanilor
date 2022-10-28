@@ -1,18 +1,14 @@
-body{
-    background-color: #6F1D1B;
-}
 .content{
     display: flex;
     margin: 5vw;
 }
 .navbar{
-    text-align:center;
     color: #DCBA64;
     font-family: 'Roboto', sans-serif;
     font-size: 32px;
     letter-spacing: 2px;
 }
-.leftarrow{
+.arrowcircle{
     margin-top: 30vh;
     width: 80px;
     height: 80px; 
@@ -21,14 +17,8 @@ body{
     color: #6F1D1B;
     border-radius: 100%;
 }
-.rightarrow{
-    margin-top: 30vh;
-    width: 80px;
-    height: 80px; 
-    background-color: #DCBA64;
-    font-size: 30px;
-    color: #6F1D1B;
-    border-radius: 100%;
+.arrowcircle:hover{
+    background-color: #9c7e33;
 }
 .slides{
     position: relative;
@@ -47,15 +37,24 @@ body{
 .arrow1{
     position:relative;
     top: 18px;
-    left: 22px;
 }
 .arrow2{
     position:relative;
     top: 25px;
-    left: 30px;
 }
 .footer{
-    text-align: center;
     position: sticky;
     top: 87vh;
+}
+.textcenter{
+    text-align: center;
+}
+#traian{
+    position:absolute;
+    left: 85vw;
+    top: 65vh;
+}
+.traian{
+    width:80%;
+    -webkit-filter: sepia(200%);
 }
