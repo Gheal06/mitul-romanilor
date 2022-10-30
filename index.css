@@ -30,6 +30,13 @@
     margin-left: 3vw;
     margin-right: 3vw;
 }
+.slides a{
+    color: #6F1D1B;
+}
+
+.slides a:visited{
+    color: #300000;
+}
 .slide{
     margin: 30px;
     font-size: 30px;
@@ -45,9 +52,15 @@
 .footer{
     position: sticky;
     top: 87vh;
+    margin: 0;
+    padding: 0;
 }
 .textcenter{
     text-align: center;
+}
+.lastparagraph{
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 #traian{
     position:absolute;
@@ -57,4 +70,7 @@
 .traian{
     width:80%;
     -webkit-filter: sepia(200%);
+}
+.small{
+    font-size: 24px;
 }
